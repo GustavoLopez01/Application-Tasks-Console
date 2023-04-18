@@ -1,18 +1,19 @@
-require('colors')
-const { mostrarMenu, pausaMenu } = require('./helpers/mensajes');
+const { inquirerMenu, pausa } = require('./helpers/inquirer');
 
-console.clear();
+require('colors')
 
 const main = async () => {
     
-    let opc = '';
+    let opc = -1;
 
     do {
 
-        opc = await mostrarMenu();
-        await pausaMenu();
-        
-    } while (opc !== '0');
+        opc = await inquirerMenu();
+        console.log(opc);
+
+        await pausa();
+
+    } while (opc !== 0);
 
 }
 
