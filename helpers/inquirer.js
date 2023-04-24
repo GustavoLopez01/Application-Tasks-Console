@@ -9,31 +9,31 @@ const preguntas = [
         choices: [
             {
                 value: 1,
-                name: '1.- Crear Tarea'
+                name: `${'1.-'.blue} Crear Tarea`
             },
             {
                 value: 2,
-                name: '2.- Listar Tareas'
+                name: `${'2.-'.blue} Listar Tareas`
             },
             {
                 value: 3,
-                name: '3.- Listar Tareas Completadas'
+                name: `${'3.-'.blue} Listar Tareas Completadas`
             },
             {
                 value: 4,
-                name: '4.- Listar Tareas Pendientes'
+                name: `${'4.-'.blue} Listar Tareas Pendientes`
             },
             {
                 value: 5,
-                name: '5.- Completar Tarea(s)'
+                name: `${'5.-'.blue} Completar Tarea(s)`
             },
             {
                 value: 6,
-                name: '6.- Borrar Tarea'
+                name: `${'6.-'.blue} Borrar Tarea`
             },
             {
                 value: 0,
-                name: '7.- Salir...'
+                name: `${'7.-'.blue} Salir..`
             }
         ],
       },
