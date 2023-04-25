@@ -1,5 +1,5 @@
 const { guardarArchivoDB, leerDb } = require('./helpers/guardarArchivo');
-const { inquirerMenu, pausa, leerTeclado, tareasMenu, confirmacionTeclado } = require('./helpers/inquirer');
+const { inquirerMenu, pausa, leerTeclado, tareasMenu, confirmacionTeclado, listadoCheck } = require('./helpers/inquirer');
 const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
@@ -48,6 +48,9 @@ const main = async () => {
                 break;
         
             case 5:
+
+                const ids = await listadoCheck(tareas.listadoArr);                
+                tareas.toggleCompletadas(ids);
                 break;
 
             case 6: 

@@ -1,12 +1,1 @@
-[
-    {
-        "id": "f6d92f2f-681e-4681-8a10-4c3223adcc68",
-        "descripcion": "nuke ak",
-        "completado": null
-    },
-    {
-        "id": "4f90cba3-f5c1-48c2-a3dc-951b52972645",
-        "descripcion": "nuke war",
-        "completado": null
-    }
-]
+[{"id":"f6d92f2f-681e-4681-8a10-4c3223adcc68","descripcion":"nuke ak","completado":"2023-04-25T16:52:39.774Z"},{"id":"4f90cba3-f5c1-48c2-a3dc-951b52972645","descripcion":"nuke war","completado":"2023-04-25T16:52:39.774Z"}]

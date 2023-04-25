@@ -59,11 +59,28 @@ class Tareas {
         }else{
             this.listadoArr.filter( li => li.completado == null).forEach((tarea, indice) => {            
                 console.log(`${indice+1}.`.blue + ` ${tarea.descripcion} :: ${tarea.completado + ''.red}`);
-            });        
-            
-
+            });                
         }
+    }
 
+    toggleCompletadas( ids = [] ){
+
+        ids.forEach( tareaId => {
+
+            const tarea = this._listado[tareaId];
+
+            if(tarea){
+                tarea.completado = new Date().toISOString();
+            }
+        });
+
+        this.listadoArr.forEach(tarea => {
+
+            if(!ids.includes(tarea.id)){
+                this._listado[tarea.id].completado = null;
+            }
+
+        });
 
     }
 
