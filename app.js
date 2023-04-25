@@ -1,3 +1,4 @@
+const { guardarArchivoDB, leerDb } = require('./helpers/guardarArchivo');
 const { inquirerMenu, pausa, leerTeclado } = require('./helpers/inquirer');
 const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
@@ -8,6 +9,11 @@ const main = async () => {
     
     let opc = -1;
     const tareas = new Tareas();
+
+    const tareasDb = leerDb();
+    if(tareasDb){
+        tareas.establecerTareas(tareasDb);
+    }
 
     do {
 
@@ -25,7 +31,7 @@ const main = async () => {
                 break;
             case 2:
             // listar todas las tareas
-            console.log(tareas.listadoArr);
+                tareas.listadoCompleto();
 
                 break;
 
@@ -48,6 +54,8 @@ const main = async () => {
             default:
                 break;
         }
+
+        // guardarArchivoDB(tareas.listadoArr);
 
         await pausa();
 
