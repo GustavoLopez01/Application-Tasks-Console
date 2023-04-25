@@ -45,9 +45,27 @@ class Tareas {
 
         this.listadoArr.forEach((tarea, indice) => {            
             console.log(`${indice+1}.`.blue + ` ${tarea.descripcion} :: ${(tarea.completado) ? 'Completado'.blue : 'Pendiente'.red}`);
-        })
+        });        
+    }
 
-        
+    listarCompletadasPendientes( completada = true ){
+
+        if(completada){
+
+            this.listadoArr.filter( li => li.completado != null).forEach((tarea, indice) => {            
+                console.log(`${indice+1}.`.blue + ` ${tarea.descripcion} :: ${tarea.completado+ ''.blue}`);
+            });        
+
+        }else{
+
+            this.listadoArr.filter( li => li.completado == null).forEach((tarea, indice) => {            
+                console.log(`${indice+1}.`.blue + ` ${tarea.descripcion} :: ${tarea.completado + ''.red}`);
+            });        
+            
+
+        }
+
+
     }
 
 
