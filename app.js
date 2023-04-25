@@ -1,5 +1,5 @@
 const { guardarArchivoDB, leerDb } = require('./helpers/guardarArchivo');
-const { inquirerMenu, pausa, leerTeclado } = require('./helpers/inquirer');
+const { inquirerMenu, pausa, leerTeclado, tareasMenu, confirmacionTeclado } = require('./helpers/inquirer');
 const Tarea = require('./models/tarea');
 const Tareas = require('./models/tareas');
 
@@ -9,8 +9,8 @@ const main = async () => {
     
     let opc = -1;
     const tareas = new Tareas();
-
     const tareasDb = leerDb();
+
     if(tareasDb){
         tareas.establecerTareas(tareasDb);
     }
@@ -51,6 +51,14 @@ const main = async () => {
                 break;
 
             case 6: 
+
+                const id = await tareasMenu(tareas.listadoArr);
+                const flag = await confirmacionTeclado("Estas seguro?")
+                
+                if(flag){
+                    tareas.borrarTarea(id);
+                }
+
                 break;
 
             case 7:
@@ -60,7 +68,7 @@ const main = async () => {
                 break;
         }
 
-        // guardarArchivoDB(tareas.listadoArr);
+        guardarArchivoDB(tareas.listadoArr);
 
         await pausa();
 

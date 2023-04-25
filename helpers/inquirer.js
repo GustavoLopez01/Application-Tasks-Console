@@ -88,8 +88,48 @@ const leerTeclado =  async ( message ) => {
 
 }
 
+const tareasMenu = async (tareas = []) =>{
+
+    const opciones = tareas.map((tarea, indice) => {
+        return {
+            value: tarea.id,
+            name: ` ${ indice+1}.- `.blue + ` ${tarea.descripcion}`
+        }
+
+    });
+
+    const preguntas = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Borrar',
+            choices: opciones
+        }];
+
+        const { id } = await inquirer.prompt(preguntas);
+        return id;
+}
+
+const confirmacionTeclado =  async ( message ) => {
+
+    const pregunta = [
+        {
+            type: 'confirm',
+            name: 'flag',
+            message,
+        }
+    ]
+
+    const {flag} = await inquirer.prompt(pregunta); 
+    return flag;
+
+}
+
+
 module.exports = {
     inquirerMenu,
     pausa,
     leerTeclado,
+    tareasMenu,
+    confirmacionTeclado,
 }
